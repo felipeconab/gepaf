@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acordos de Cooperação (PAA) - Conab</title>
+    <!-- Tailwind CSS para o design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons para os ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .zoom-in { animation: zoomIn 0.3s ease-out forwards; }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-emerald-800 text-white shadow-md">
+        <div class="max-w-5xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center space-x-2 text-emerald-300 mb-1">
+                        <i data-lucide="building" class="w-4 h-4"></i>
+                        <span class="text-sm font-semibold tracking-wider uppercase">Portal de Capacitação Conab</span>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold">Acordos de Cooperação (PAA)</h1>
+                    <p class="text-emerald-100 mt-2">Manual de Procedimentos Interativo</p>
+                </div>
+                <div class="hidden md:block bg-emerald-700 p-3 rounded-lg border border-emerald-600 shadow-inner">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-emerald-300"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <div class="bg-white border-b sticky top-0 z-10 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4">
+            <nav class="flex overflow-x-auto hide-scrollbar" id="nav-tabs">
+                <button onclick="switchTab('regras', this)" class="nav-btn flex items-center space-x-2 py-4 px-4 md:px-6 whitespace-nowrap font-medium transition-colors border-b-2 border-emerald-600 text-emerald-700 bg-emerald-50/50">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    <span>Regras Básicas</span>
+                </button>
+                <button onclick="switchTab('checklist', this)" class="nav-btn flex items-center space-x-2 py-4 px-4 md:px-6 whitespace-nowrap font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-emerald-600 hover:bg-gray-50">
+                    <i data-lucide="check-square" class="w-4 h-4"></i>
+                    <span>Check-list & Fases</span>
+                </button>
+                <button onclick="switchTab('fluxo', this)" class="nav-btn flex items-center space-x-2 py-4 px-4 md:px-6 whitespace-nowrap font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-emerald-600 hover:bg-gray-50">
+                    <i data-lucide="git-merge" class="w-4 h-4"></i>
+                    <span>Fluxo de Aprovação</span>
+                </button>
+                <button onclick="switchTab('quiz', this)" class="nav-btn flex items-center space-x-2 py-4 px-4 md:px-6 whitespace-nowrap font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-emerald-600 hover:bg-gray-50">
+                    <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+                    <span>Quiz de Fixação</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8">
+        
+        <!-- Tab: Regras -->
+        <div id="regras" class="tab-content active space-y-6">
+            <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-lg mb-6">
+                <h3 class="text-lg font-bold text-emerald-800 flex items-center">
+                    <i data-lucide="landmark" class="mr-2 w-5 h-5"></i> 1. Objetivo do Acordo
+                </h3>
+                <p class="text-emerald-700 mt-2">
+                    Regulamentar a atuação de instituições financeiras (bancos ou cooperativas de crédito) autorizadas a abrir e manter <strong>contas-poupança bloqueadas (vinculadas)</strong> e <strong>contas-poupança de livre movimentação</strong>, destinadas exclusivamente às operações do Programa de Aquisição de Alimentos (PAA).
+                </p>
+            </div>
+
+            <h3 class="text-xl font-bold text-gray-800 border-b pb-2">2. Regras de Negócio e Condições Operacionais</h3>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center mb-3">
+                        <i data-lucide="shield-check" class="text-green-600 w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">Isenção de Tarifas</h4>
+                    <p class="text-sm text-gray-600 mt-2">Este instrumento <strong>não implica repasse de recursos</strong> para o custeio do acordo pela Conab. As contas utilizadas pelas organizações de agricultores familiares devem ser <strong>isentas de taxas bancárias</strong>.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mb-3">
+                        <i data-lucide="arrow-down-to-line" class="text-blue-600 w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">Mecânica de Pagamento</h4>
+                    <p class="text-sm text-gray-600 mt-2">O recurso financeiro da Conab é depositado exclusivamente na <strong>conta-poupança bloqueada via Ordem Bancária</strong>.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="bg-indigo-100 w-10 h-10 rounded-full flex items-center justify-center mb-3">
+                        <i data-lucide="unlock" class="text-indigo-600 w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">Liberação de Valores</h4>
+                    <p class="text-sm text-gray-600 mt-2">Só são liberados para a conta de livre movimentação após <strong>autorização expressa e formal da Sureg</strong> competente da Conab. A instituição tem <strong>até 2 dias úteis</strong> para realizar o repasse.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="bg-orange-100 w-10 h-10 rounded-full flex items-center justify-center mb-3">
+                        <i data-lucide="clock" class="text-orange-600 w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">Prazos e Vigência</h4>
+                    <p class="text-sm text-gray-600 mt-2">Vigência exata de <strong>60 meses</strong> a partir da assinatura, sendo <strong>terminantemente vedada</strong> a sua prorrogação.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="bg-red-100 w-10 h-10 rounded-full flex items-center justify-center mb-3">
+                        <i data-lucide="lock" class="text-red-600 w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">Manutenção de Contas</h4>
+                    <p class="text-sm text-gray-600 mt-2">A instituição financeira se compromete a <strong>não cancelar as contas ativas</strong> pelo período mínimo de <strong>2 anos</strong> a partir da abertura.</p>
+                </div>
+                
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="bg-purple-100 w-10 h-10 rounded-full flex items-center justify-center mb-3">
+                        <i data-lucide="users" class="text-purple-600 w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">6. Pós-Assinatura (Fiscalização)</h4>
+                    <p class="text-sm text-gray-600 mt-2">A Conab tem o prazo restrito de <strong>até 30 dias</strong> após a publicação do extrato no DOU para designar oficialmente <strong>dois fiscais</strong> encarregados de acompanhar a execução do contrato.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Checklist -->
+        <div id="checklist" class="tab-content space-y-6">
+            <p class="text-gray-600 mb-6">
+                Navegue pelas fases documentais exigidas da Instituição Financeira e da Conab. Marque os itens para acompanhar o seu entendimento de todas as exigências (Seções 3 e 4 do Manual).
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="checklist-container">
+                <!-- Gerado por JS -->
+            </div>
+        </div>
+
+        <!-- Tab: Fluxo -->
+        <div id="fluxo" class="tab-content space-y-6 max-w-3xl mx-auto py-8">
+            <h3 class="text-xl font-bold text-center text-gray-800 mb-8">5. Fluxo de Tramitação e Aprovação (Setores Envolvidos)</h3>
+            
+            <div class="relative border-l-2 border-gray-200 ml-4 md:ml-8 space-y-10">
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform">1</div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold text-lg text-gray-800">GEPAF <span class="text-sm font-normal text-gray-500 block">(Gerência de Programação e Acompanhamento da Agricultura Familiar)</span></h4>
+                        <p class="text-gray-600 mt-2">Recebe o rol de documentos, confere, elabora a Nota Técnica e as Minutas (Acordo e Voto), e emite o Despacho de encaminhamento.</p>
+                    </div>
+                </div>
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform">2</div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold text-lg text-gray-800">SUPAF <span class="text-sm font-normal text-gray-500 block">(Superintendência de Agricultura Familiar)</span></h4>
+                        <p class="text-gray-600 mt-2">Recebe o processo da GEPAF via Despacho para ciência e chancela.</p>
+                    </div>
+                </div>
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center text-white font-bold shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform">3</div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold text-lg text-gray-800">DIPAI <span class="text-sm font-normal text-gray-500 block">(Diretoria de Política Agrícola e Informações)</span></h4>
+                        <p class="text-gray-600 mt-2">Recebe os autos para aprovação executiva (Voto Minuta).</p>
+                    </div>
+                </div>
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform">4</div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold text-lg text-gray-800">PROGE & SUCOR</h4>
+                        <p class="text-gray-600 mt-2">A DIPAI encaminha o processo para a <strong>Procuradoria-Geral (PROGE)</strong> e <strong>Superintendência de Fiscalização e Conformidade (SUCOR)</strong> para apreciação, análise jurídica e validação de riscos/conformidade.</p>
+                    </div>
+                </div>
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform">5</div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold text-lg text-gray-800">Assinatura e Publicação (DIRETORIA EXECUTIVA)</h4>
+                        <p class="text-gray-600 mt-2">Após aprovação da Diretoria Executiva, o acordo é assinado e o extrato é publicado no Diário Oficial da União (DOU).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Quiz -->
+        <div id="quiz" class="tab-content max-w-2xl mx-auto">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100" id="quiz-container">
+                <div class="text-center mb-8">
+                    <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="brain-circuit" class="text-emerald-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Teste os seus Conhecimentos</h3>
+                    <p class="text-gray-500 mt-2">Valide o que aprendeu no manual do PAA.</p>
+                </div>
+
+                <div id="quiz-questions" class="space-y-8">
+                    <!-- Gerado por JS -->
+                </div>
+                
+                <button id="btn-submit-quiz" onclick="submitQuiz()" disabled class="mt-8 w-full py-4 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-colors shadow-lg">
+                    Ver Resultado
+                </button>
+
+                <!-- Área de Resultado (Oculta por padrão) -->
+                <div id="quiz-result" class="hidden text-center space-y-6 zoom-in">
+                    <div class="inline-block p-6 rounded-full bg-gray-50 mb-2">
+                        <span id="score-display" class="text-5xl font-black text-emerald-600">0/3</span>
+                    </div>
+                    <div id="feedback-msg"></div>
+                    <button onclick="resetQuiz()" class="mt-6 px-6 py-2 border-2 border-emerald-600 text-emerald-600 font-bold rounded-lg hover:bg-emerald-50 transition-colors">
+                        Tentar Novamente
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t py-8 mt-12 text-center text-slate-500 text-sm">
+        <p>Baseado no Manual de Procedimentos: Acordos de Cooperação (PAA) da Conab.</p>
+        <p class="mt-1">Desenvolvido para fins de treinamento e capacitação interna.</p>
+    </footer>
+
+    <!-- Scripts Logica App -->
+    <script>
+        // Inicializa os ícones
+        lucide.createIcons();
+
+        // LÓGICA DAS ABAS (TABS)
+        function switchTab(tabId, btnElement) {
+            // Esconde todos os conteúdos
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Remove classes ativas de todos os botões
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.className = "nav-btn flex items-center space-x-2 py-4 px-4 md:px-6 whitespace-nowrap font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-emerald-600 hover:bg-gray-50";
+            });
+
+            // Mostra o conteúdo selecionado
+            document.getElementById(tabId).classList.add('active');
+            
+            // Ativa o botão selecionado
+            btnElement.className = "nav-btn flex items-center space-x-2 py-4 px-4 md:px-6 whitespace-nowrap font-medium transition-colors border-b-2 border-emerald-600 text-emerald-700 bg-emerald-50/50";
+        }
+
+        // LÓGICA DO CHECKLIST
+        const checklistData = [
+            {
+                fase: "3.1 Início do Processo",
+                color: "bg-green-100 border-green-500",
+                icon: "play-circle",
+                iconColor: "text-green-700",
+                items: [
+                    'Ofício manifestando interesse na formalização do Acordo em âmbito nacional.',
+                    'E-mail reiterando a necessidade de formalização.'
+                ]
+            },
+            {
+                fase: "3.2 Documentação Institucional e Societária",
+                color: "bg-yellow-100 border-yellow-500",
+                icon: "building-2",
+                iconColor: "text-yellow-700",
+                items: [
+                    'Estatuto Social atualizado.',
+                    'Ata de Posse do Conselho de Administração.',
+                    'Ata de Posse da Diretoria Executiva.',
+                    'Documentos Pessoais (CNH/RG) dos membros da alta gestão.',
+                    'Cartão de Inscrição no CNPJ.',
+                    'Certidão Simplificada de Registro na Junta Comercial (ex: JUSESC).'
+                ]
+            },
+            {
+                fase: "3.3 Certidões de Regularidade (Fiscais e Trabalhistas)",
+                color: "bg-red-100 border-red-500",
+                icon: "file-check-2",
+                iconColor: "text-red-700",
+                items: [
+                    'Certidão CND Federal (PGFN - RFB).',
+                    'Certidão de Débitos Trabalhistas.',
+                    'Consulta de Regularidade do Empregador (FGTS).',
+                    'Certidão Negativa de Débito Estadual.',
+                    'Certidão Negativa de Débito Municipal.'
+                ]
+            },
+            {
+                fase: "3.4 Consultas de Idoneidade e Risco",
+                color: "bg-orange-100 border-orange-500",
+                icon: "alert-triangle",
+                iconColor: "text-orange-700",
+                items: [
+                    'Certidão CEIS - CGU (Cadastro de Empresas Inidôneas e Suspensas).',
+                    'Certidão de Improbidade Administrativa e Inelegibilidade (CNJ).',
+                    'Consulta CADIN (Cadastro de Inadimplentes).',
+                    'Certidão de Regularidade do BACEN.',
+                    'Consulta SIRCOI (Sistema de Risco de Crédito).'
+                ]
+            },
+            {
+                fase: "4. Documentação Interna (Responsabilidade da GEPAF)",
+                color: "bg-blue-100 border-blue-500",
+                icon: "folder-kanban",
+                iconColor: "text-blue-700",
+                items: [
+                    'Nota Técnica GEPAF: Justificando a viabilidade técnica do acordo (elaborada no SEI).',
+                    'Minuta do Acordo de Cooperação: Validada com a instituição parceira antes do trâmite final.',
+                    'Minuta de Voto DIPAI: Para deliberação e aprovação do Diretor-Executivo.'
+                ]
+            }
+        ];
+
+        const checklistContainer = document.getElementById('checklist-container');
+        checklistData.forEach((fase, fIndex) => {
+            let itemsHtml = fase.items.map((item, iIndex) => `
+                <li class="flex items-start space-x-3 cursor-pointer group" onclick="toggleCheck(this)">
+                    <div class="mt-0.5 flex-shrink-0 w-5 h-5 rounded border border-gray-300 bg-white flex items-center justify-center transition-colors check-box">
+                        <i data-lucide="check" class="w-4 h-4 text-white hidden check-icon"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 transition-colors check-text">${item}</span>
+                </li>
+            `).join('');
+
+            checklistContainer.innerHTML += `
+                <div class="p-5 rounded-xl border-l-4 shadow-sm bg-white ${fase.color}">
+                    <div class="flex items-center space-x-2 mb-4 border-b pb-2">
+                        <i data-lucide="${fase.icon}" class="w-5 h-5 ${fase.iconColor}"></i>
+                        <h3 class="font-bold text-gray-800">${fase.fase}</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        ${itemsHtml}
+                    </ul>
+                </div>
+            `;
+        });
+
+        function toggleCheck(el) {
+            const box = el.querySelector('.check-box');
+            const icon = el.querySelector('.check-icon');
+            const text = el.querySelector('.check-text');
+
+            // Toggle styles
+            if (box.classList.contains('bg-emerald-500')) {
+                box.classList.remove('bg-emerald-500', 'border-emerald-500');
+                box.classList.add('bg-white', 'border-gray-300');
+                icon.classList.add('hidden');
+                text.classList.remove('text-gray-400', 'line-through');
+                text.classList.add('text-gray-700');
+            } else {
+                box.classList.remove('bg-white', 'border-gray-300');
+                box.classList.add('bg-emerald-500', 'border-emerald-500');
+                icon.classList.remove('hidden');
+                text.classList.add('text-gray-400', 'line-through');
+                text.classList.remove('text-gray-700');
+            }
+        }
+
+        // LÓGICA DO QUIZ
+        const quizData = [
+            {
+                q: "Qual é o prazo exato de vigência de um Acordo de Cooperação PAA?",
+                options: ["12 meses, prorrogáveis", "24 meses", "60 meses, sem prorrogação", "Indeterminado"],
+                answer: 2
+            },
+            {
+                q: "Após a autorização da Sureg, qual o prazo para a instituição financeira repassar os valores da conta bloqueada para a conta de livre movimentação?",
+                options: ["Imediatamente", "Até 2 dias úteis", "Até 5 dias úteis", "Até 30 dias"],
+                answer: 1
+            },
+            {
+                q: "Qual é o prazo mínimo que a instituição financeira se compromete a NÃO cancelar as contas ativas a partir da abertura?",
+                options: ["6 meses", "1 ano", "2 anos", "5 anos"],
+                answer: 2
+            },
+            {
+                q: "Qual é o prazo que a Conab tem para nomear os 2 fiscais após a publicação do extrato no DOU?",
+                options: ["15 dias", "30 dias", "45 dias", "Não há prazo estipulado"],
+                answer: 1
+            },
+            {
+                q: "Qual setor é responsável por elaborar a Nota Técnica e as Minutas (Acordo e Voto)?",
+                options: ["GEPAF", "SUPAF", "DIPAI", "PROGE"],
+                answer: 0
+            }
+        ];
+
+        let userAnswers = {};
+        const quizContainer = document.getElementById('quiz-questions');
+        const submitBtn = document.getElementById('btn-submit-quiz');
+
+        function renderQuiz() {
+            quizContainer.innerHTML = '';
+            quizData.forEach((q, qIndex) => {
+                let optionsHtml = q.options.map((opt, oIndex) => `
+                    <button onclick="selectOption(${qIndex}, ${oIndex})" id="opt-${qIndex}-${oIndex}" class="quiz-opt-${qIndex} w-full p-3 text-left rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 text-gray-600 transition-all">
+                        ${opt}
+                    </button>
+                `).join('');
+
+                quizContainer.innerHTML += `
+                    <div class="space-y-3">
+                        <p class="font-bold text-gray-800 text-lg">${qIndex + 1}. ${q.q}</p>
+                        <div class="grid grid-cols-1 gap-2">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function selectOption(qIndex, oIndex) {
+            userAnswers[qIndex] = oIndex;
+            
+            // Reset styles for this question
+            document.querySelectorAll(`.quiz-opt-${qIndex}`).forEach(btn => {
+                btn.className = `quiz-opt-${qIndex} w-full p-3 text-left rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 text-gray-600 transition-all`;
+            });
+            
+            // Set active style
+            const selectedBtn = document.getElementById(`opt-${qIndex}-${oIndex}`);
+            selectedBtn.className = `quiz-opt-${qIndex} w-full p-3 text-left rounded-lg border border-emerald-500 bg-emerald-50 text-emerald-800 font-medium transition-all`;
+
+            // Check if all answered to enable submit
+            if (Object.keys(userAnswers).length === quizData.length) {
+                submitBtn.disabled = false;
+            }
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            quizData.forEach((q, index) => {
+                if (userAnswers[index] === q.answer) score++;
+            });
+
+            document.getElementById('quiz-questions').classList.add('hidden');
+            submitBtn.classList.add('hidden');
+            
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.classList.remove('hidden');
+            document.getElementById('score-display').innerText = `${score}/${quizData.length}`;
+
+            let feedbackHtml = "";
+            if (score === quizData.length) {
+                feedbackHtml = `
+                    <h4 class="text-xl font-bold text-green-600 flex justify-center items-center gap-2">
+                        <i data-lucide="check-circle-2"></i> Excelente!
+                    </h4>
+                    <p class="text-gray-600 mt-2">Você domina as regras do Acordo de Cooperação PAA.</p>
+                `;
+            } else {
+                feedbackHtml = `
+                    <h4 class="text-xl font-bold text-orange-600">Bom esforço!</h4>
+                    <p class="text-gray-600 mt-2">Mas vale a pena revisar as regras e prazos do manual.</p>
+                `;
+            }
+            document.getElementById('feedback-msg').innerHTML = feedbackHtml;
+            lucide.createIcons(); // Re-render icon in feedback
+        }
+
+        function resetQuiz() {
+            userAnswers = {};
+            submitBtn.disabled = true;
+            submitBtn.classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-questions').classList.remove('hidden');
+            renderQuiz();
+        }
+
+        // Init
+        renderQuiz();
+        lucide.createIcons(); // Atualiza ícones dinâmicos gerados no JS
+
+    </script>
+</body>
+</html>
